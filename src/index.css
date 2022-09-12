@@ -9,3 +9,40 @@
 body {
   font-family: "Karla", sans-serif;
 }
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/*
+* ================ Main ================
+*/
+.main {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  height: 380px;
+  background: #0b2434;
+}
+.main > div {
+  width: 320px;
+  height: 320px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+}
+.main > div h2 {
+  margin-top: 30px;
+}
+.main > div p {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4a4e74;
+  margin: 10px 60px;
+}
+.main > div .nums {
+}
