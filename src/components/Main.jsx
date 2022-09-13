@@ -57,9 +57,7 @@ const Main = () => {
       setDice((oldDice) =>
         oldDice.map((die, i) => (die.isHeld ? die : newDice[i]))
       );
-      if (dice.every((die) => !die.isHeld)) {
-        setNumOfRolls((prev) => prev + 1);
-      }
+      setNumOfRolls((prev) => prev + 1);
     } else {
       setDice(allNewDice());
       setTenzies(false);
