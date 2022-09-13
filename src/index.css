@@ -8,6 +8,7 @@
 
 body {
   font-family: "Karla", sans-serif;
+  overflow: hidden;
 }
 /*
 * ================ Main ================

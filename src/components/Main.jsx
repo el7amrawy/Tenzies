@@ -10,8 +10,8 @@ const Main = () => {
   const [dice, setDice] = useState(() => allNewDice());
   const [tenzies, setTenzies] = useState(false);
   const [numOfRolls, setNumOfRolls] = useState(0);
-  const [hieghest, SetHieghest] = useState(
-    () => parseInt(localStorage.hieghest) || "NA"
+  const [highest, Sethighest] = useState(
+    () => parseInt(localStorage.highest) || "NA"
   );
 
   /**
@@ -32,11 +32,11 @@ const Main = () => {
   }, [dice]);
 
   useEffect(() => {
-    if (numOfRolls !== 0 && (hieghest > numOfRolls || hieghest == "NA")) {
-      SetHieghest(numOfRolls);
-      localStorage.setItem("hieghest", JSON.stringify(numOfRolls));
+    if (numOfRolls !== 0 && (highest > numOfRolls || highest == "NA")) {
+      Sethighest(numOfRolls);
+      localStorage.setItem("highest", JSON.stringify(numOfRolls));
     }
-    // console.log(parseInt(hieghest), numOfRolls, hieghest);
+    // console.log(parseInt(highest), numOfRolls, highest);
   }, [tenzies]);
 
   /**
@@ -97,7 +97,7 @@ const Main = () => {
             Number of rolls: <strong>{numOfRolls}</strong>
           </span>
           <span>
-            Hieghest score: <strong>{hieghest}</strong>
+            highest score: <strong>{highest}</strong>
           </span>
         </div>
         <h2>Tenzies</h2>
