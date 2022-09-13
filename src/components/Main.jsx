@@ -4,7 +4,7 @@ import Die from "./Die";
 import Confetti from "react-confetti";
 
 const Main = () => {
-  /**
+  /*
    * States
    */
   const [dice, setDice] = useState(() => allNewDice());
