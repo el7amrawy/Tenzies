@@ -9,6 +9,10 @@ const Main = () => {
    */
   const [dice, setDice] = useState(() => allNewDice());
   const [tenzies, setTenzies] = useState(false);
+  const [numOfRolls, setNumOfRolls] = useState(0);
+  const [hieghest, SetHieghest] = useState(
+    () => parseInt(localStorage.hieghest) || "NA"
+  );
 
   /**
    * Effects
@@ -24,9 +28,16 @@ const Main = () => {
     });
     if (n === dice.length) {
       setTenzies((prev) => !prev);
-      // alert("u won");
     }
   }, [dice]);
+
+  useEffect(() => {
+    if (numOfRolls !== 0 && (hieghest > numOfRolls || hieghest == "NA")) {
+      SetHieghest(numOfRolls);
+      localStorage.setItem("hieghest", JSON.stringify(numOfRolls));
+    }
+    // console.log(parseInt(hieghest), numOfRolls, hieghest);
+  }, [tenzies]);
 
   /**
    * Functions
@@ -41,10 +52,17 @@ const Main = () => {
   }
 
   function rollDice() {
-    const newDice = allNewDice();
-    setDice((oldDice) =>
-      oldDice.map((die, i) => (die.isHeld ? die : newDice[i]))
-    );
+    if (!tenzies) {
+      const newDice = allNewDice();
+      setDice((oldDice) =>
+        oldDice.map((die, i) => (die.isHeld ? die : newDice[i]))
+      );
+      setNumOfRolls((prev) => prev + 1);
+    } else {
+      setDice(allNewDice());
+      setTenzies(false);
+      setNumOfRolls(0);
+    }
   }
 
   function holdDice(id) {
@@ -74,6 +92,14 @@ const Main = () => {
   return (
     <div className="main">
       <div>
+        <div className="counter">
+          <span>
+            Number of rolls: <strong>{numOfRolls}</strong>
+          </span>
+          <span>
+            Hieghest score: <strong>{hieghest}</strong>
+          </span>
+        </div>
         <h2>Tenzies</h2>
         <p>
           Roll until all dice are the same. Click each die to freeze it at its
