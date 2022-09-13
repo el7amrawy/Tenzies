@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Die from "./Die";
+import Confetti from "react-confetti";
 
 const Main = () => {
   /**
@@ -23,7 +24,7 @@ const Main = () => {
     });
     if (n === dice.length) {
       setTenzies((prev) => !prev);
-      alert("u won");
+      // alert("u won");
     }
   }, [dice]);
 
@@ -81,6 +82,7 @@ const Main = () => {
         <div className="nums">{diceElems}</div>
         <button onClick={rollDice}>{tenzies ? "New Game" : "Roll"}</button>
       </div>
+      {tenzies && <Confetti />}
     </div>
   );
 };
