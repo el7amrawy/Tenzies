@@ -45,4 +45,31 @@ body {
   margin: 10px 60px;
 }
 .main > div .nums {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row: 1fr 1fr;
+  gap: 18px;
+  width: max-content;
+  margin: 20px auto;
+}
+.die {
+  width: 35px;
+  height: 35px;
+  background: #59e391;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+.main > div button {
+  background: #5035ff;
+  box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+  border-radius: 3.81277px;
+  border: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
